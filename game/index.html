@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUNSET SHORES — Palmera Bay</title>
+<link rel="stylesheet" href="./css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="game-root"></div>
+
+<div id="hud">
+  <div id="top-left">
+    <div id="health-bar"><div id="health-fill"></div><span id="health-text">100</span></div>
+    <div id="cash">$0</div>
+    <div id="car-health"><div class="car-label">CAR</div><div id="car-health-fill"></div></div>
+  </div>
+  <div id="top-right">
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="speed-wrap"><span id="speed"></span> <span id="speed-label"></span></div>
+  </div>
+  <div id="objective"><span class="obj-tag">MISSION</span> <span id="objective-text"></span></div>
+  <div id="banner"></div>
+  <div id="center-text"></div>
+  <div id="crosshair">+</div>
+  <div id="hint"></div>
+  <canvas id="minimap" width="200" height="200"></canvas>
+  <div id="damage-flash"></div>
+</div>
+
+<div id="menu" class="overlay">
+  <div class="panel">
+    <h1>SUNSET SHORES</h1>
+    <p class="tagline">Palmera Bay — an open-world crime story</p>
+    <p class="story">Rico Vale just rolled into Palmera Bay with empty pockets and a
+    borrowed name. Mara Sol runs the streets from the hideout on Coral Court —
+    and she has jobs. Steal cars, outrun the Palmera Bay PD, run the drops,
+    settle the score with the Vipers, and pull the Big Score at the Bay Bank.</p>
+    <div class="controls">
+      <div><b>WASD</b> move / drive</div>
+      <div><b>Mouse drag</b> camera · <b>wheel</b> zoom</div>
+      <div><b>E</b> get in / out of a car</div>
+      <div><b>T</b> start the next mission</div>
+      <div><b>1</b> draw pistol · <b>click</b> shoot · <b>F</b> punch</div>
+      <div><b>Shift</b> sprint · <b>Space</b> jump · <b>M</b> sound · <b>Esc</b> pause</div>
+    </div>
+    <div class="buttons">
+      <button id="btn-start">START THE STORY</button>
+      <button id="btn-continue" style="display:none">CONTINUE</button>
+    </div>
+    <p class="foot">A complete open world: city on foot and by car, traffic &amp;
+    pedestrians, car theft, wanted levels &amp; police, 5 story missions, combat,
+    minimap HUD, save game, synth sound. All art, story and sound original.</p>
+  </div>
+</div>
+
+<div id="pause" class="overlay" style="display:none">
+  <div class="panel">
+    <h1>PAUSED</h1>
+    <p class="tagline">Palmera Bay waits for no one. Except now.</p>
+    <div class="buttons">
+      <button id="btn-resume">RESUME</button>
+      <button id="btn-save-quit">SAVE &amp; QUIT TO MENU</button>
+      <button id="btn-restart">RESTART FROM SCRATCH</button>
+    </div>
+  </div>
+</div>
+
+<div id="busted" class="overlay" style="display:none">
+  <div class="panel">
+    <h1 id="busted-title">BUSTED</h1>
+    <p class="tagline">The Palmera Bay PD has you. $100 bail, back on the street.</p>
+    <div class="buttons">
+      <button id="btn-respawn">BACK TO THE STREETS</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./js/game.js"></script>
+</body>
+</html>

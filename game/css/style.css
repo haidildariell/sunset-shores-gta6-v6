@@ -1,0 +1,63 @@
+/* Sunset Shores — HUD + menu styling. Warm sunset palette, chunky readable type. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #1a1210;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #fff; }
+#game-root, #game-root canvas { position: fixed; inset: 0; display: block; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+#top-left { position: absolute; top: 14px; left: 14px; }
+#health-bar { width: 220px; height: 20px; background: rgba(0,0,0,.55); border: 2px solid #fff3;
+  border-radius: 4px; position: relative; overflow: hidden; }
+#health-fill { height: 100%; width: 100%; background: #37d67a; transition: width .2s; }
+#health-text { position: absolute; inset: 0; text-align: center; font-size: 12px; line-height: 18px;
+  font-weight: 700; text-shadow: 0 1px 2px #000; }
+#cash { margin-top: 6px; font-size: 26px; font-weight: 800; color: #7dff9e;
+  text-shadow: 0 2px 4px #000; letter-spacing: 1px; }
+#car-health { margin-top: 6px; width: 220px; height: 12px; background: rgba(0,0,0,.55);
+  border: 2px solid #fff3; border-radius: 3px; position: relative; display: none; }
+#car-health-fill { height: 100%; width: 100%; background: #39d5ff; }
+.car-label { position: absolute; left: 4px; top: -15px; font-size: 10px; font-weight: 700; color: #39d5ff; }
+
+#top-right { position: absolute; top: 14px; right: 14px; text-align: right; }
+#stars { font-size: 28px; letter-spacing: 4px; color: #ffd94d; text-shadow: 0 2px 6px #000; }
+#speed-wrap { font-size: 30px; font-weight: 800; text-shadow: 0 2px 4px #000; }
+#speed-label { font-size: 14px; color: #ffd94d; }
+
+#objective { position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.6); border-left: 4px solid #ffd94d; padding: 8px 14px;
+  font-size: 15px; font-weight: 600; border-radius: 3px; display: none; max-width: 560px; }
+.obj-tag { color: #ffd94d; font-weight: 800; margin-right: 6px; }
+
+#banner { position: absolute; top: 22%; left: 50%; transform: translateX(-50%);
+  text-align: center; opacity: 0; transition: opacity .4s; text-shadow: 0 3px 8px #000; }
+.banner-title { font-size: 44px; font-weight: 900; letter-spacing: 3px; color: #ffe9a8; }
+.banner-sub { font-size: 17px; color: #fff; margin-top: 4px; }
+
+#center-text { position: absolute; top: 58%; left: 50%; transform: translateX(-50%);
+  font-size: 20px; font-weight: 700; text-shadow: 0 2px 6px #000; opacity: 0; transition: opacity .3s; }
+#crosshair { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-size: 26px; font-weight: 900; color: #fff; text-shadow: 0 0 4px #000; display: none; }
+#hint { position: absolute; bottom: 12px; left: 14px; font-size: 13px; color: #fff9;
+  text-shadow: 0 1px 3px #000; }
+#minimap { position: absolute; bottom: 12px; right: 12px; width: 200px; height: 200px;
+  border: 3px solid rgba(255,255,255,.75); border-radius: 50%; background: #12303e;
+  box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+#damage-flash { position: fixed; inset: 0; background: radial-gradient(ellipse at center,
+  transparent 55%, rgba(255,0,0,.55) 100%); opacity: 0; pointer-events: none; }
+
+.overlay { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center;
+  justify-content: center; background: linear-gradient(160deg, rgba(40,10,30,.82), rgba(10,20,50,.82)); }
+.panel { max-width: 620px; padding: 36px 44px; text-align: center;
+  background: rgba(0,0,0,.45); border: 1px solid rgba(255,217,77,.4); border-radius: 10px; }
+.panel h1 { font-size: 52px; font-weight: 900; letter-spacing: 6px; color: #ffd94d;
+  text-shadow: 0 4px 0 #b33a1e, 0 8px 18px #000; }
+.tagline { color: #ffb36b; font-size: 17px; margin: 6px 0 16px; font-weight: 600; }
+.story { font-size: 15px; line-height: 1.55; color: #f2e8d8; }
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; text-align: left;
+  font-size: 13.5px; margin: 18px 0; color: #ddd; }
+.controls b { color: #ffd94d; }
+.buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+button { pointer-events: auto; cursor: pointer; background: #ffd94d; color: #241505; border: none;
+  font-size: 16px; font-weight: 800; letter-spacing: 1px; padding: 12px 22px; border-radius: 5px; }
+button:hover { background: #ffe9a8; }
+.foot { margin-top: 18px; font-size: 12px; color: #bbb; line-height: 1.5; }
